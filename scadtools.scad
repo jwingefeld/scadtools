@@ -7,6 +7,8 @@
 */
 
 echo("Thanks for using jans OpenSCAD toolbox");
+echo("for help please include help(); in your sketch");
+overlap=0.1;
 
 module ring(r1, r2, h,fn) {
     if (r1 < r2) {
@@ -28,4 +30,15 @@ module roundedRect(size, radius)
         translate([x-radius,y-radius]) circle(r=radius);
         translate([radius,y-radius]) circle(r=radius);
     }
+}
+module cubeXYcenter(size) {
+    zoffset=size[2]/2;
+    translate([0,0,zoffset]) cube(size,center=true);
+}
+module help() {
+    echo ("=============================");
+    echo ("ring(R1, R2, height, FN)");
+    echo ("roundedRect(size, radius)");
+    echo ("cubeXYcenter(size)");
+    
 }
